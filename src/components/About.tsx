@@ -11,7 +11,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 bg-[#FDFDFD]">
+    <section id="about" className="py-24 px-6 bg-[#FDFDFD] overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         
         <div className="relative order-2 lg:order-1">
@@ -35,7 +35,7 @@ const About = () => {
               <span>REPEAT</span>
             </div>
           </motion.div>
-          <div className="absolute -top-6 -left-6 border-4 border-black bg-pink-400 p-4 font-black uppercase text-xl rotate-[-10deg] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10">
+          <div className="absolute -top-4 left-0 sm:-top-6 sm:-left-6 border-4 border-black bg-pink-400 p-3 sm:p-4 font-black uppercase text-lg sm:text-xl rotate-[-10deg] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10">
             Siapa Saya?
           </div>
         </div>

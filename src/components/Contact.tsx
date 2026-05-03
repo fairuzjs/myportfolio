@@ -33,11 +33,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-pink-400 border-t-4 border-black">
+    <section id="contact" className="py-24 px-6 bg-pink-400 border-t-4 border-black overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
         <div>
-          <h2 className="font-black text-5xl sm:text-6xl md:text-8xl uppercase tracking-tighter mb-8 bg-white border-4 border-black inline-block p-4 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] rotate-[-2deg] leading-tight">
+          <h2 className="font-black text-4xl sm:text-6xl md:text-8xl uppercase tracking-tighter mb-8 bg-white border-4 border-black inline-block p-4 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] rotate-[-2deg] leading-tight">
             Open to<br/>Work.
           </h2>
           <p className="text-xl md:text-2xl font-black mb-12 max-w-lg border-l-8 border-black pl-4 bg-yellow-400 border-4 p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rotate-1">
@@ -52,8 +52,8 @@ const Contact = () => {
             ].map((item, i) => (
               <motion.div 
                 key={i}
-                whileHover={{ x: 10 }}
-                className={`flex items-center gap-4 md:gap-6 border-4 border-black p-3 md:p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full sm:w-max overflow-hidden ${item.color}`}
+                whileHover={{ x: 8 }}
+                className={`flex items-center gap-4 md:gap-6 border-4 border-black p-3 md:p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] w-full overflow-hidden ${item.color}`}
               >
                 <div className="font-black shrink-0">{item.icon}</div>
                 <p className="font-bold text-sm sm:text-base md:text-xl uppercase tracking-wider truncate">{item.text}</p>

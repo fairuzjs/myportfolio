@@ -40,8 +40,12 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden;
+    max-width: 100%;
   }
   body {
     @apply bg-white text-black font-sans antialiased;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 }

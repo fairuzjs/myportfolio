@@ -35,7 +35,7 @@ export default function App() {
   }
 
   return (
-    <div className="font-sans text-black selection:bg-pink-400 selection:text-white cursor-default">
+    <div className="font-sans text-black selection:bg-pink-400 selection:text-white cursor-default overflow-x-hidden w-full">
       {/* Custom Cursor */}
       <motion.div
         className="fixed top-0 left-0 w-8 h-8 bg-transparent border-4 border-black mix-blend-difference pointer-events-none z-[100] hidden md:block rounded-full shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]"

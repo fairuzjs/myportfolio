@@ -105,7 +105,7 @@ const Hero = () => {
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-              className="absolute -top-10 -right-10 w-32 h-32 bg-yellow-400 border-4 border-black rounded-full flex items-center justify-center z-0"
+              className="absolute -top-10 -right-10 w-28 h-28 md:w-32 md:h-32 bg-yellow-400 border-4 border-black rounded-full flex items-center justify-center z-0 hidden sm:flex"
             >
               <Zap size={48} className="fill-black" />
             </motion.div>

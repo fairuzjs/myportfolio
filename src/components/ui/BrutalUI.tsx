@@ -20,7 +20,7 @@ export const BrutalBadge = ({ children, color = 'bg-yellow-400', className = '' 
 );
 
 export const Marquee = () => (
-  <div className="relative flex overflow-hidden border-y-4 border-black bg-black text-white py-3">
+  <div className="relative flex overflow-x-hidden border-y-4 border-black bg-black text-white py-3">
     <motion.div
       animate={{ x: [0, -1036] }}
       transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
