@@ -23,7 +23,7 @@ const Navbar = () => {
   ];
 
   const socialItems = [
-    { label: 'GitHub', link: 'https://github.com' },
+    { label: 'GitHub', link: 'https://github.com/fairuzjs' },
     { label: 'LinkedIn', link: 'https://www.linkedin.com/in/danendra-fairuz/' },
     { label: 'Instagram', link: 'https://instagram.com/draafrzz_' },
   ];

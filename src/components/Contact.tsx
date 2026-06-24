@@ -46,9 +46,9 @@ const Contact = () => {
 
           <div className="flex flex-col gap-6">
             {[
-              { icon: <Mail />, text: "dndraaa219@gmail.com", color: "bg-white" },
+              { icon: <Mail />, text: "draaafrz@gmail.com", color: "bg-white" },
               { icon: <MapPin />, text: "Bandung, Indonesia", color: "bg-yellow-400" },
-              { icon: <Phone />, text: "+62 858-8391-7835", color: "bg-blue-400" }
+              { icon: <Phone />, text: "+62 813-8788-3915", color: "bg-blue-400" }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -93,7 +93,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     className="w-full border-4 border-black bg-gray-50 p-4 font-bold focus:bg-yellow-100 focus:outline-none transition-colors"
-                    placeholder="JOHN DOE"
+                    placeholder="NAMA ANDA"
                   />
                 </div>
                 <div>
