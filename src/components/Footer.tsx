@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="flex gap-4">
               {[
                 { Icon: Github, url: "https://github.com/fairuzjs" },
-                { Icon: Linkedin, url: "" },
+                { Icon: Linkedin, url: "https://www.linkedin.com/in/danendra-fairuz/" },
                 { Icon: Instagram, url: "https://instagram.com/draafrzz_" },
                 { Icon: Mail, url: "mailto:dndraaa219@gmail.com" }
               ].map(({ Icon, url }, i) => (

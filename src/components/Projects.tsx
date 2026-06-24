@@ -17,16 +17,16 @@ const ProjectCard: React.FC<{ project: Project; index: number; onClick: () => vo
       onClick={onClick}
     >
       <div className={`brutal-border ${project.color} brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all overflow-hidden h-full flex flex-col bg-white`}>
-        <div className="p-2 bg-black border-b-4 border-black flex justify-between items-center text-white font-bold text-xs uppercase px-4 shrink-0">
-          <span className="truncate mr-2">{project.category}</span>
-          <div className="flex gap-2 shrink-0">
-            <div className="w-2 h-2 rounded-full bg-brutal-green" />
-            <div className="w-2 h-2 rounded-full bg-brutal-yellow" />
-            <div className="w-2 h-2 rounded-full bg-brutal-pink" />
+        <div className="p-1.5 md:p-2 bg-black border-b-2 border-black flex justify-between items-center text-white font-bold text-[9px] md:text-xs uppercase px-2 md:px-4 shrink-0">
+          <span className="truncate mr-1 md:mr-2">{project.category}</span>
+          <div className="flex gap-1 md:gap-2 shrink-0">
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brutal-green" />
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brutal-yellow" />
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brutal-pink" />
           </div>
         </div>
         
-        <div className="relative w-full h-48 border-b-4 border-black overflow-hidden bg-gray-200 shrink-0">
+        <div className="relative w-full h-28 md:h-48 border-b-2 border-black overflow-hidden bg-gray-200 shrink-0">
           {coverImage && (
             <img 
               src={coverImage} 
@@ -37,24 +37,24 @@ const ProjectCard: React.FC<{ project: Project; index: number; onClick: () => vo
           )}
         </div>
 
-        <div className="p-4 flex-grow flex flex-col justify-between">
+        <div className="p-3 md:p-4 flex-grow flex flex-col justify-between">
           <div>
-            <h3 className="text-xl font-black uppercase tracking-tight leading-tight line-clamp-2 mb-2">{project.title}</h3>
-            <div className="flex flex-wrap gap-1 mb-4">
-              {project.tags.slice(0, 3).map(tag => (
-                <span key={tag} className="bg-gray-100 border-2 border-black px-1.5 py-0.5 text-[10px] font-bold uppercase">
+            <h3 className="text-sm md:text-xl font-black uppercase tracking-tight leading-tight line-clamp-2 mb-2">{project.title}</h3>
+            <div className="flex flex-wrap gap-1 mb-2 md:mb-4">
+              {project.tags.slice(0, 2).map(tag => (
+                <span key={tag} className="bg-gray-100 border-2 border-black px-1 md:px-1.5 py-0.5 text-[8px] md:text-[10px] font-bold uppercase">
                   #{tag}
                 </span>
               ))}
-              {project.tags.length > 3 && (
-                <span className="bg-gray-100 border-2 border-black px-1.5 py-0.5 text-[10px] font-bold uppercase">
-                  +{project.tags.length - 3}
+              {project.tags.length > 2 && (
+                <span className="bg-gray-100 border-2 border-black px-1 md:px-1.5 py-0.5 text-[8px] md:text-[10px] font-bold uppercase">
+                  +{project.tags.length - 2}
                 </span>
               )}
             </div>
           </div>
-          <div className="mt-auto font-bold text-sm underline decoration-2 underline-offset-2 flex items-center gap-1 group-hover:text-brutal-pink transition-colors">
-            Lihat Detail <ExternalLink size={14} />
+          <div className="mt-auto font-bold text-[10px] md:text-sm underline decoration-2 underline-offset-2 flex items-center gap-1 group-hover:text-brutal-pink transition-colors">
+            Detail <ExternalLink className="w-3 h-3 md:w-3.5 md:h-3.5" />
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void; onImageCli
         className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white brutal-border brutal-shadow flex flex-col z-10"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 z-20 p-3 bg-black border-b-4 border-black flex justify-between items-center text-white font-bold text-sm uppercase px-4">
+        <div className="sticky top-0 z-20 p-3 bg-black border-b-2 border-black flex justify-between items-center text-white font-bold text-sm uppercase px-4">
           <span>{project.category}</span>
           <button onClick={onClose} className="hover:text-brutal-pink transition-colors">
             <X size={24} />
@@ -101,7 +101,7 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void; onImageCli
         </div>
         
         <div 
-          className="relative w-full h-64 md:h-96 border-b-4 border-black group/slider overflow-hidden bg-gray-200 shrink-0 cursor-pointer" 
+          className="relative w-full h-64 md:h-96 border-b-2 border-black group/slider overflow-hidden bg-gray-200 shrink-0 cursor-pointer" 
           onClick={() => images.length > 0 && onImageClick(images[currentImageIndex])}
         >
           {images.length > 0 && (
@@ -210,6 +210,7 @@ const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -238,7 +239,7 @@ const Projects = () => {
   }, [selectedProject, fullScreenImage]);
 
   return (
-    <section id="projects" className="py-20 px-6 bg-gray-50 border-t-4 border-black">
+    <section id="projects" className="py-20 px-6 bg-gray-50 border-t-2 border-black">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div>
@@ -249,12 +250,12 @@ const Projects = () => {
               Kumpulan proyek yang sudah saya buat, mulai dari tugas akhir semester hingga proyek klien.
             </p>
           </div>
-          <div className="font-black uppercase tracking-widest text-sm border-b-4 border-black pb-2">
+          <div className="font-black uppercase tracking-widest text-sm border-b-2 border-black pb-2">
             {projects.length.toString().padStart(2, '0')} / Total
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
           {isLoading ? (
             <div className="col-span-full py-20 text-center font-bold text-2xl uppercase italic text-gray-500">
               Memuat Proyek...
@@ -264,7 +265,7 @@ const Projects = () => {
               Tidak ada proyek ditemukan.
             </div>
           ) : (
-            projects.map((project, index) => (
+            projects.slice(0, visibleCount).map((project, index) => (
               <ProjectCard 
                 key={project.id} 
                 project={project} 
@@ -275,9 +276,11 @@ const Projects = () => {
           )}
         </div>
 
-        {projects.length > 8 && (
+        {projects.length > visibleCount && (
           <div className="mt-20 text-center">
-            <button className="brutal-border bg-white px-12 py-6 text-xl font-black uppercase brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <button 
+              onClick={() => setVisibleCount(prev => prev + 6)}
+              className="brutal-border bg-white px-12 py-6 text-xl font-black uppercase brutal-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
               Muat Lebih Banyak Proyek
             </button>
           </div>

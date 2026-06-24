@@ -1,42 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Code2, Palette, Terminal } from 'lucide-react';
+import Lanyard from './Lanyard';
 
 const About = () => {
-  const skills = [
-    { icon: <Layers size={32} />, name: "Frontend", color: "bg-yellow-400", rotate: "rotate-2" },
-    { icon: <Code2 size={32} />, name: "Backend", color: "bg-pink-400", rotate: "-rotate-2" },
-    { icon: <Palette size={32} />, name: "UI Design", color: "bg-blue-400", rotate: "rotate-3" },
-    { icon: <Terminal size={32} />, name: "DevOps", color: "bg-green-400", rotate: "-rotate-1" },
-  ];
 
   return (
     <section id="about" className="py-24 px-6 bg-[#FDFDFD] overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         
         <div className="relative order-2 lg:order-1">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring" }}
-            className="border-4 border-black bg-yellow-400 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]"
-          >
-            <div className="w-full aspect-[4/5] bg-gray-200 flex flex-col items-center justify-center font-black text-4xl text-gray-400 uppercase text-center border-b-4 border-black overflow-hidden relative group">
-              <img 
-                src="/myfoto.jpeg" 
-                alt="Profile" 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all" />
-            </div>
-            <div className="p-3 md:p-4 bg-black text-white flex justify-between font-bold uppercase text-sm sm:text-base md:text-xl">
-              <span>HIKING</span>
-              <span>CODING</span>
-              <span>REPEAT</span>
-            </div>
-          </motion.div>
-          <div className="absolute -top-4 left-0 sm:-top-6 sm:-left-6 border-4 border-black bg-pink-400 p-3 sm:p-4 font-black uppercase text-lg sm:text-xl rotate-[-10deg] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-10">
-            Siapa Saya?
+          <div className="relative z-0 h-[600px] w-full flex justify-center items-center">
+            <Lanyard position={[0, 2, 10]} gravity={[0, -40, 0]} frontImage="/myfoto.jpeg" backImage="/myfoto.jpeg" />
           </div>
         </div>
 
@@ -56,22 +30,6 @@ const About = () => {
             <p className="justify-center">
               Selain suka ngoding, saya juga suka mendaki gunung. Karna mendaki gunung adalah cara saya mencari inspirasi, menenangkan pikiran dan sering mengabadikan keindahan alam melalui lensa kamera.
             </p>
-          </div>
-          
-          <div className="mt-12 grid grid-cols-2 gap-6">
-            {skills.map((skill, i) => (
-              <motion.div 
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.05, rotate: 0 }}
-                className={`border-4 border-black ${skill.color} p-4 md:p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${skill.rotate} transition-transform flex flex-col items-center justify-center gap-2 md:gap-4`}
-              >
-                {skill.icon}
-                <div className="font-black uppercase tracking-widest text-xs sm:text-sm md:text-lg text-center">{skill.name}</div>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
 
